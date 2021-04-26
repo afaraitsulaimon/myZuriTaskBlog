@@ -18,7 +18,7 @@ def home_view(request):
     context = {
         'postblog': postblog
     }
-    return render(request, "home.html", context)
+    return render(request, "index.html", context)
 
 
 #view for diplaying each view you click
