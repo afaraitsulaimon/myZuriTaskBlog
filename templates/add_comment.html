@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block content %}
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-8 bg-secondary word ">
+
+            <h2>Add Comment To A Post</h2>
+
+            <div class="form-group">
+                <form action="" method="POST">
+                    {% csrf_token %} {{ formCommentTemplate.as_p}}
+
+
+
+                    <button type="submit">Add Comment</button>
+                </form>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
