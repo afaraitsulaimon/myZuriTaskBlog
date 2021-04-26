@@ -1,0 +1,53 @@
+ {% extends 'base.html' %} {% block content %}
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6 bg-secondary word ">
+
+            {% for post_message in postblog %}
+
+            <div class="card card-columns ml-2" style="width: 18rem; height: auto; white-space: nowrap;word-break: break-word; overflow: hidden;">
+
+                <div class="card-header">
+                    {% block author %}
+                    <h2>{{ post_message.author }} {{ post_message.id }}</h2>
+
+                    {% endblock author %}
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{post_message.title}}</h5>
+                    <p class="card-text">
+                        {{post_message.content}}
+                    </p>
+
+                    <p class="card-text">
+                        {{post_message.created_on}}
+                    </p>
+                    <button class="btn btn-primary"><a href="{% url 'display-blog-details' post_message.id %}" class="text-decoration-none text-light">More</a> </button>
+                </div>
+
+
+
+
+
+            </div>
+            {% endfor %}
+
+
+        </div>
+
+        <div class="col-6 bg-danger thebuttons">
+            <button class="btn btn-primary btn-lg border border-2"><a href="{% url 'register' %}" class="text-light text-decoration-none">Register Here</a></button>&nbsp;
+            <h1> OR </h1> &nbsp;
+            <button class="btn btn-primary btn-lg border border-2"><a href="{% url 'login' %}" class="text-light text-decoration-none">Login Here</a></button>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
