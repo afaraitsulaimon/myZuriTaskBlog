@@ -1,1 +1,1 @@
-web: gunicorn peenarzblogapp.wsgi --log-file -
+web: gunicorn peenarzblogapp.wsgi
