@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-0jo3@v)s56esue!g+1wg+*4ycmm24ou92mz8&2ym&8i6zp_69d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['peenarz-django-blog.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -125,7 +125,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))]
@@ -135,4 +134,3 @@ STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-django_heroku.settings(locals())
