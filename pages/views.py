@@ -6,6 +6,8 @@ from myBlog.forms import NewCommentForm
 from myBlog.models import Post
 from myBlog.models import BlogComment
 from django.contrib.auth import login, logout, authenticate
+from django import forms
+
 
 
 
@@ -39,20 +41,23 @@ def displayBlog_view(request, my_id):
 #view for adding comment to each post
 
 def addComment_view(request, post_id):
-
+    
     post_details = Post.objects.get(id=post_id)
-    formComment = NewCommentForm(request.POST or None)
+    if request.method == 'POST':
+        formComment = NewCommentForm(request.POST or None)
+        if formComment.is_valid():
+            formComment.save()
+            formComment = NewCommentForm()
 
-    if formComment.is_valid():
-        formComment.save()
-        formComment = NewCommentForm()
-
+    formComment = NewCommentForm()
     context = {
 
         "postDetails" : post_details,
         "formCommentTemplate" : formComment
         
     }
+
+    
 
     return render(request, 'add_comment.html', context)
 
