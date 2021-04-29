@@ -10,10 +10,8 @@
 
             <div class="form-group">
                 <form method="POST" action="">
+
                     {% csrf_token %} {{ formCommentTemplate.as_p}}
-
-
-
                     <button type="submit">Add Comment</button>
                 </form>
 

@@ -16,6 +16,10 @@
                     <p>{{blogdetailsId.content}}</p>
                 </div>
 
+                <div class="card-body">
+                    <a href="">Edit</a> &nbsp; <a href="">Delete</a>
+                </div>
+
 
             </div>
 
@@ -29,13 +33,16 @@
                     <div class="card-body">
                         {{ comment.comment_content}}
                     </div>
-                    <div class="card-title">
-                        <strong>{{ comment.comment_author}}</strong>
-                    </div>
+
 
                     <div class="card-body">
                         {{ comment.date_posted}}
                     </div>
+
+                    <div class="card-title">
+                        Commented by <strong>{{ comment.user}}</strong>
+                    </div>
+
                     <hr> {% endfor %} {% endif %}
 
                 </div>

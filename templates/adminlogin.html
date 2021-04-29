@@ -1,0 +1,32 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 myUserLoginText bg-secondary">
+            <h1>Admin Login</h1>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 myUserLoginForm bg-secondary">
+
+            <form method="POST" action="" class="form-group">
+                {% csrf_token %} {{ form_super_user.as_p}}
+
+                <button type="submit" class="btn btn-primary">Login</button>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

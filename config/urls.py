@@ -30,12 +30,19 @@ then in the path we will change it to
     this is a good convention compare to the first one
 
 """
-from pages.views import home_view, register_view, login_view, displayBlog_view, addComment_view, logout_view
+from pages.views import home_view, register_view, login_view, displayBlog_view, addComment_view, logout_view, post_view, superuser_login_view, superuser_dashboard_view, admin_logout_view, postupdate_view, postdelete_view
 
 app_name = "pages"
 
 urlpatterns = [
+
+    path('deletepost/<int:id>/delete', postdelete_view, name='deletepost'),
+    path('editpost/<int:id>/', postupdate_view, name='editpost'),
+    path('adminlogin/', superuser_login_view, name='adminlogin'),
+    path('post_new/', post_view, name='post_new'),
     path('logout/',logout_view, name='logout'),
+    path('adminlogout/',admin_logout_view , name='adminlogout'),
+    path('admin_dashboard/',superuser_dashboard_view , name='admin_dashboard'),
     path('title/<int:post_id>/comment', addComment_view, name='add_comment'),
     path('title/<int:my_id>/', displayBlog_view, name='display-blog-details'),
     path('login/', login_view, name='login'),

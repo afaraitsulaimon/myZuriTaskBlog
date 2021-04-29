@@ -11,8 +11,8 @@
             <div class="card card-columns ml-2" style="width: 18rem; height: auto; white-space: nowrap;word-break: break-word; overflow: hidden;">
 
                 <div class="card-header">
-                    {% block author %}
-                    <h2>{{ post_message.author }} {{ post_message.id }}</h2>
+                    {% block author %} Created by
+                    <h2>{{ post_message.author }}</h2>
 
                     {% endblock author %}
                 </div>

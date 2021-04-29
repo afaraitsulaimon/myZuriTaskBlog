@@ -21,11 +21,16 @@ class Post(models.Model):
 class BlogComment(models.Model):
 
     blogpost_connected = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     comment_content = models.TextField()
     date_posted = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.blogpost_connected.title
+
+
+
+
 
 
 
