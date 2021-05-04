@@ -153,7 +153,7 @@ def superuser_login_view(request):
 
 # view for admin dashboard,
 #so that the admin can be
-
+@login_required
 def superuser_dashboard_view(request):
     numberOfPost = Post.objects.all()
     numberOfUser = User.objects.all()
@@ -175,7 +175,7 @@ def superuser_dashboard_view(request):
 
 
 #view for posting new
-
+@login_required
 def post_view(request):
     if request.method == 'POST':
         formPost = NewPostForm(request.POST or None)
@@ -193,7 +193,7 @@ def post_view(request):
 
     #view for admin to edit post
 
-
+@login_required
 def postupdate_view(request, id):
 
     object = Post.objects.get(id=id)
@@ -208,7 +208,7 @@ def postupdate_view(request, id):
 
 
 # delete view
-
+@login_required
 def postdelete_view(request, id):
 
     obj = get_object_or_404(Post, id=id)
