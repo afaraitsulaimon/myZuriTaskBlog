@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% block content %} {% load crispy_forms_tags %}
 
 <div class="container-fluid">
     <div class="row">
@@ -15,8 +15,16 @@
     <div class="row">
         <div class="col-12 myUserLoginForm bg-secondary">
 
+            {% for message in messages %}
+
+            <div class="alert alert-success">
+                <a class="close" href="#" data-dismiss="alert">×</a> {{ message }}
+
+            </div>
+            {% endfor %}
+
             <form method="POST" action="" class="form-group">
-                {% csrf_token %} {{ form_super_user.as_p}}
+                {% csrf_token %} {{ form_super_user|crispy}}
 
                 <button type="submit" class="btn btn-primary">Login</button>
 
